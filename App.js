@@ -8,13 +8,14 @@
 
 import React from 'react';
 import Voice from '@react-native-community/voice';
-import {SafeAreaView, StyleSheet, Text, Button} from 'react-native';
+import {SafeAreaView, StyleSheet} from 'react-native';
+import VideoComponent from './components/atoms/videoComponent';
 
 class App extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      recognized: '',
+      recognized: null,
       started: '',
       results: [],
     };
@@ -27,16 +28,15 @@ class App extends React.Component {
   }
   onSpeechStart(e) {
     this.setState({
-      started: '√',
+      started: null,
     });
   }
   onSpeechRecognized(e) {
     this.setState({
-      recognized: '√',
+      recognized: null,
     });
   }
   onSpeechResults(e) {
-    console.log('it is......', e.value);
     let pos = require('pos');
     let words = new pos.Lexer().lex(e.value[0]);
     let tagger = new pos.Tagger();
@@ -49,7 +49,7 @@ class App extends React.Component {
   }
   async _startRecognition(e) {
     this.setState({
-      recognized: '',
+      recognized: true,
       started: '',
       results: [],
     });
@@ -59,19 +59,30 @@ class App extends React.Component {
       console.error(e);
     }
   }
+
+  stopListening(e) {
+    Voice.stop();
+    this.setState({
+      recognized: true,
+    });
+  }
+
+  changeText = (text) => {
+    this.setState({
+      results: [text],
+    });
+  };
+
   render() {
     return (
-      <SafeAreaView>
-        <Text style={styles.transcript}>Transcript</Text>
-        {this.state.results.map((result, index) => (
-          <Text style={styles.transcript} key={index}>
-            {result}
-          </Text>
-        ))}
-        <Button
-          style={styles.transcript}
-          onPress={this._startRecognition.bind(this)}
-          title="Start"
+      <SafeAreaView style={styles.container}>
+        <VideoComponent
+          text={this.state.results[0]}
+          changeText={this.changeText}
+          recognized={this.state.recognized}
+          start={this._startRecognition.bind(this)}
+          stop={this.stopListening.bind(this)}
+          noun={this.state.noun}
         />
       </SafeAreaView>
     );
@@ -84,6 +95,12 @@ const styles = StyleSheet.create({
     marginBottom: 1,
     top: '400%',
     marginTop: 20,
+  },
+  container: {
+    flex: 1,
+    backgroundColor: 'rgb(228, 29, 62)',
+    alignItems: 'center',
+    justifyContent: 'center',
   },
 });
 
