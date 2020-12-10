@@ -134,7 +134,6 @@
 				A6C37833EE53EFB432DD395C /* Pods-videoApp-videoAppTests.debug.xcconfig */,
 				0544D87F88F1B6651AE891C6 /* Pods-videoApp-videoAppTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
