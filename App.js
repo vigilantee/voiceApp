@@ -8,23 +8,7 @@
 
 import React from 'react';
 import Voice from '@react-native-community/voice';
-import {
-  SafeAreaView,
-  StyleSheet,
-  ScrollView,
-  View,
-  Text,
-  StatusBar,
-  Button,
-} from 'react-native';
-
-import {
-  Header,
-  LearnMoreLinks,
-  Colors,
-  DebugInstructions,
-  ReloadInstructions,
-} from 'react-native/Libraries/NewAppScreen';
+import {SafeAreaView, StyleSheet, Text, Button} from 'react-native';
 
 class App extends React.Component {
   constructor(props) {
@@ -52,8 +36,15 @@ class App extends React.Component {
     });
   }
   onSpeechResults(e) {
+    console.log('it is......', e.value);
+    let pos = require('pos');
+    let words = new pos.Lexer().lex(e.value[0]);
+    let tagger = new pos.Tagger();
+    let taggedWords = tagger.tag(words);
+    let noun = taggedWords.filter((el) => el[1] === 'NN' || el[1] === 'NNS');
     this.setState({
       results: e.value,
+      noun: noun ? (noun[0] ? noun[0][0] : null) : null,
     });
   }
   async _startRecognition(e) {
