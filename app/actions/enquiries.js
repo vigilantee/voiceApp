@@ -24,7 +24,7 @@ const getSearchResultsFromAPI = () => {
     fetch(BASE_URL)
       .then((response) => response.json())
       .then((responseJson) => {
-        console.log(responseJson.dataList);
+        // console.log(responseJson.dataList);
         dispatch(getSearchResultsDataValue(responseJson.dataList));
       })
       .catch((error) => {

@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Text, ScrollView} from 'react-native';
+import {Text, ScrollView, View, TouchableOpacity} from 'react-native';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
 import {getSearchResultsFromAPI} from '../../actions/enquiries';
@@ -11,13 +11,22 @@ class Enquiries extends Component {
     this.props.enquiries.length > 1 || this.props.getSearchResults();
   }
   render() {
-    // this.props.getSearchResults();
+    console.log(this.props.enquiries.length);
     return (
       <>
-        <Text>ENQUIRIES</Text>
         <ScrollView>
-          {this.props.enquiries.map((el) => {
-            return <Card data={el} />;
+          {this.props.enquiries.map((el, index) => {
+            return (
+              <TouchableOpacity
+                key={el.enqId}
+                onPress={() => {
+                  this.props.navigation.navigate('enquiryDetails', {
+                    id: index,
+                  });
+                }}>
+                <Card data={el} />
+              </TouchableOpacity>
+            );
           })}
         </ScrollView>
       </>

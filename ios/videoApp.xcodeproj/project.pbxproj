@@ -19,6 +19,7 @@
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		A25BCAF940A6A30DC7A7E0C8 /* libPods-videoApp-videoAppTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 32167EC1E883CB4688A8AC06 /* libPods-videoApp-videoAppTests.a */; };
 		AF5CA339258A803D00DA2980 /* libRNVectorIcons.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF5CA338258A803D00DA2980 /* libRNVectorIcons.a */; };
+		AF5CA34F258B258300DA2980 /* libRNGestureHandler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AF5CA34E258B258300DA2980 /* libRNGestureHandler.a */; };
 		ED45F7F8E8BF909878320954 /* libPods-videoApp-tvOS.a in Frameworks */ = {isa = PBXBuildFile; fileRef = CA6395C3608420DA9A5C2E39 /* libPods-videoApp-tvOS.a */; };
 		F4D6437E742AF282D57E478C /* libPods-videoApp.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F4414CF6FD8F5350B4FB4552 /* libPods-videoApp.a */; };
 /* End PBXBuildFile section */
@@ -104,6 +105,8 @@
 		AF5CA32E258A7E1100DA2980 /* Feather.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		AF5CA32F258A7F5D00DA2980 /* RNVectorIcons.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNVectorIcons.xcodeproj; path = "../node_modules/react-native-vector-icons/RNVectorIcons.xcodeproj"; sourceTree = "<group>"; };
 		AF5CA338258A803D00DA2980 /* libRNVectorIcons.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNVectorIcons.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF5CA346258B208900DA2980 /* libRNGestureHandler.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNGestureHandler.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		AF5CA34E258B258300DA2980 /* libRNGestureHandler.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; path = libRNGestureHandler.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		C0AC4B2277F441DBBEF01CCB /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		CA6395C3608420DA9A5C2E39 /* libPods-videoApp-tvOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-videoApp-tvOS.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CC27A27DB04C4381A8AA5BA8 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
@@ -131,6 +134,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AF5CA34F258B258300DA2980 /* libRNGestureHandler.a in Frameworks */,
 				AF5CA339258A803D00DA2980 /* libRNVectorIcons.a in Frameworks */,
 				F4D6437E742AF282D57E478C /* libPods-videoApp.a in Frameworks */,
 			);
@@ -205,6 +209,8 @@
 		2D16E6871FA4F8E400B85C8A /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AF5CA34E258B258300DA2980 /* libRNGestureHandler.a */,
+				AF5CA346258B208900DA2980 /* libRNGestureHandler.a */,
 				AF5CA338258A803D00DA2980 /* libRNVectorIcons.a */,
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
 				ED2971642150620600B7C4FE /* JavaScriptCore.framework */,
