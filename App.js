@@ -8,23 +8,22 @@
 
 import React from 'react';
 import {SafeAreaView, StyleSheet} from 'react-native';
-import Enquiries from './components/molecules/enquiries';
+import {Provider} from 'react-redux';
+import {createStore, applyMiddleware} from 'redux';
+import thunk from 'redux-thunk';
+import Enquiries from './app/components/molecules/enquiries';
+import reducer from './app/reducers/index';
+
+const store = createStore(reducer, applyMiddleware(thunk));
 
 class App extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      recognized: null,
-      started: '',
-      results: [],
-    };
-  }
-
   render() {
     return (
-      <SafeAreaView style={styles.container}>
-        <Enquiries />
-      </SafeAreaView>
+      <Provider store={store}>
+        <SafeAreaView style={styles.container}>
+          <Enquiries />
+        </SafeAreaView>
+      </Provider>
     );
   }
 }
